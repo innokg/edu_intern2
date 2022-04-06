@@ -57,6 +57,7 @@ class Subthemes(models.Model):
         verbose_name='Название подтемы')
     lessons_id = models.ForeignKey(
         to="lessons.Lesson",
+        blank=True, null=True,
         on_delete=models.PROTECT)
     comments = models.TextField(
         blank=True,
