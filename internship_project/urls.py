@@ -20,6 +20,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework.routers import DefaultRouter
 from courses.views import CourseViewSet, SubthemViewSet, LessonsBlockViewSet
+from lessons.views import HometaskViewSet, LessonsViewSet
 
 
 schema_view = get_schema_view(
@@ -40,7 +41,8 @@ router = DefaultRouter()
 router.register('courses', CourseViewSet, basename='api-courses')
 router.register('subthems', SubthemViewSet, basename='api-subthemes')
 router.register('lessonblocks', LessonsBlockViewSet, basename='api-lessonblocks')
-
+router.register('hometasks', HometaskViewSet, basename='api-hometasks')
+router.register('lessons', LessonsViewSet, basename='api-lessons' )
 
 
 

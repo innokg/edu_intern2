@@ -1,4 +1,6 @@
-
+"""
+views for lessons models
+"""
 from django.db import models
 from courses.models import Courses, LessonsBlock, Subthemes
 
@@ -6,6 +8,10 @@ from courses.models import Courses, LessonsBlock, Subthemes
 
 class Lesson(models.Model):
     """Class for Lessons"""
+    lesson_name = models.CharField(
+        max_length=250,
+        verbose_name='Название занятия'
+    )
     motivation = models.TextField(
         blank=True,
         verbose_name='Мотивация')
@@ -32,6 +38,7 @@ class Lesson(models.Model):
     lessons_block_id = models.ForeignKey(
         to=LessonsBlock,
         on_delete=models.PROTECT)
+    objects = models.Manager()
 
 
 class LessonsList(models.Model):
@@ -81,6 +88,7 @@ class Hometasks(models.Model):
     task = models.TextField(
         blank=True,
         verbose_name='Задание')
+    objects = models.Manager()
 
 
 class Examination(models.Model):
